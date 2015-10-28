@@ -8,7 +8,7 @@ template <class ColorType>
 class LetterRecognizer
 {
 protected:
-    using ImageType = Image<ColorType>
+    using ImageType = Image<ColorType>;
 
 public:
     virtual std::string recognize(const ImageType& image) const = 0;
