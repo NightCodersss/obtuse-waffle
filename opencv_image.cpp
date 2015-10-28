@@ -1,5 +1,7 @@
 #include "opencv_image.hpp"
 
+OpenCVImage::OpenCVImage(cv::Mat const& m): image(m) { }
+
 int OpenCVImage::width() const
 {
 	return image.cols;

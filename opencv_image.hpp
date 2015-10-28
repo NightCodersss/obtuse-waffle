@@ -9,6 +9,9 @@ using OpenCVColorType = cv::Vec3b;
 class OpenCVImage: public Image<OpenCVColorType>
 {
 public: 
+
+	OpenCVImage(cv::Mat const& m);
+
 	OpenCVColorType operator[](std::pair<int, int> index) const override;			
 	int width() const override;
 	int height() const override;
