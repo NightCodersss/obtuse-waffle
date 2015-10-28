@@ -7,9 +7,9 @@ template <class ColorType>
 class Image
 {
 public:
-	virtual ColorType operator[](std::pair<int, int> index) const;			
-	virtual int width() const;
-	virtual int height() const;
+	virtual ColorType operator[](std::pair<int, int> index) const = 0;			
+	virtual int width() const = 0;
+	virtual int height() const = 0;
 };
 
 #endif
