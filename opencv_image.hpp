@@ -1,6 +1,8 @@
 #ifndef OPENCV_IMAGE_HPP
 #define OPENCV_IMAGE_HPP
 
+#include <opencv2/opencv.hpp>
+
 #include "image.hpp"
 using OpenCVColorType = cv::Vec3b;
 
