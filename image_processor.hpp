@@ -7,20 +7,24 @@
 #include "image_segmenter.hpp"
 #include "letter_recognizer.hpp"
 
+template <class ColorType>
 class ImageProcessor
 {
 public:
 
-    ImageProcessor(std::unique_ptr<ImageBinarizer> binarizer
-                 , std::unique_ptr<ImageSegmenter> segmenter
-                 , std::unique_ptr<LetterRecognizer> recognizer);
-
+    ImageProcessor(BinarizerType binarizer, SegmenterType segmenter, RecognizerType recognizer);
     std::string process(const Image& image);
+
+protected:
     
+    using BinarizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
+    using SegmenterType = std::unique_ptr<ImageBinarizer<ColorType>>;
+    using RecognizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
+
 private:
-    std::unique_ptr<ImageBinarizer> binarizer;
-    std::unique_ptr<ImageSegmenter> segmenter;
-    std::unique_ptr<LetterRecognizer> recognizer;
+    BinarizerType binarizer;
+    SegmenterType segmenter;
+    RecognizerType recognizer;
 };
 
 #endif
