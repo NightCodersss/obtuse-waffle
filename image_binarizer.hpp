@@ -7,11 +7,11 @@
 template <class ColorType>
 class ImageBinarizer
 {
-public:
-    virtual ImageType binarize(const Image& image) = 0;
-
 protected:    
-    using ImageType = std::unique_ptr<Image<ColorType>>;
+    using ImageType = Image<ColorType>;
+
+public:
+    virtual std::unique_ptr<ImageType> binarize(const ImageType& image) = 0;
 };
 
 #endif

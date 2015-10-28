@@ -10,16 +10,17 @@
 template <class ColorType>
 class ImageProcessor
 {
-public:
-
-    ImageProcessor(BinarizerType binarizer, SegmenterType segmenter, RecognizerType recognizer);
-    std::string process(const Image& image);
-
 protected:
-    
     using BinarizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
     using SegmenterType = std::unique_ptr<ImageBinarizer<ColorType>>;
     using RecognizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
+
+    using ImageType = Image<ColorType>;
+
+public:
+
+    ImageProcessor(BinarizerType binarizer, SegmenterType segmenter, RecognizerType recognizer);
+    std::string process(const ImageType& image);
 
 private:
     BinarizerType binarizer;
