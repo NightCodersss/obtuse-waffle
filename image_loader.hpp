@@ -7,6 +7,10 @@
 template<class ColorType>
 class ImageLoader
 {
-	virtual std::unique_ptr<Image<ColorType>> load(std::string& path);
+protected:
+    using ImageType = Image<ColorType>;
+
+public:
+	virtual std::unique_ptr<ImageType> load(const std::string& path) const = 0;
 };
 #endif
