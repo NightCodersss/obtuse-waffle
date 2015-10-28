@@ -4,10 +4,9 @@
 template <class ColorType>
 class Image
 {
-	Image(int w = 0, int h = 0);
 	virtual ColorType operator[](int i, int j);			
-	int width();
-	int height();
+	virtual int width() const;
+	virtual int height() const;
 };
 
 #endif
