@@ -1,6 +1,7 @@
 #ifndef OPENCV_IMAGE_LOADER_HPP
 #define OPENCV_IMAGE_LOADER_HPP
 
+#include "image_loader.hpp"
 #include "opencv_image.hpp"
 
 class OpenCVImageLoader : public ImageLoader<OpenCVColorType>
