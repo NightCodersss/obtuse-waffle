@@ -1,6 +1,6 @@
 CXX=g++
 CFLAGS=-c -std=c++14 -g -Wall -Wextra -Werror -pedantic
-LDFLAGS=
+LDFLAGS=-lopencv_core
 SOURCES=main.cpp opencv_image.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main
