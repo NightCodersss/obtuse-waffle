@@ -12,7 +12,7 @@ class ImageSegmenter
 protected:
     using ImageType = Image<ColorType>;
 public:
-    std::vector<std::unique_ptr<ImageType>> segment(const ImageType &image) const;   
+    virtual std::vector<std::unique_ptr<ImageType>> segment(const ImageType &image) const = 0;
 };
 
 #endif
