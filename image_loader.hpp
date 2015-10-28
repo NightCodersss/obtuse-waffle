@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include "image.hpp"
 
 template<class ColorType>
 class ImageLoader
