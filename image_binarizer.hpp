@@ -1,6 +1,7 @@
 #ifndef IMAGE_BINARIZER_HPP
 #define IMAGE_BINARIZER_HPP
 
+#include <memory>
 #include "image.hpp"
 
 template <class ColorType>
