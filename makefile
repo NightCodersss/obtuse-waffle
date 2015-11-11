@@ -1,6 +1,6 @@
 CXX=g++
-CFLAGS=-c -std=c++14 -g -Wall -Wextra -Werror -pedantic
-LDFLAGS=-lopencv_core -lopencv_imgproc -lopencv_highgui
+CFLAGS=-c -std=c++14 -g -Wall -Wextra -Werror -pedantic -DBOOST_LOG_DYN_LINK
+LDFLAGS=-lopencv_core -lopencv_imgproc -lopencv_highgui -lboost_log -lboost_system -lboost_thread -lpthread
 SOURCES=main.cpp opencv_image.cpp opencv_image_binarizer.cpp opencv_image_loader.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main
