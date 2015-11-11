@@ -5,6 +5,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "opencv_image_binarizer.hpp"
+#include "opencv_image_denoiser.hpp"
 
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
@@ -30,8 +31,11 @@ int main(int argc, char **argv)
         auto loader = std::make_unique<OpenCVImageLoader>();
         auto image = loader->load(argv[1]);
         auto binarizer = std::make_unique<OpenCVImageBinarizer>();
-        auto bin = binarizer->binarize(*image);
-        ((OpenCVImage*)bin.get())->show();
+        auto denoiser = std::make_unique<OpenCVImageDenoiser>();
+        auto den = denoiser->denoise(*image);
+        dynamic_cast<OpenCVImage*>(den.get())->show();
+        auto bin = binarizer->binarize(*den);
+        dynamic_cast<OpenCVImage*>(bin.get())->show();
     }
     catch (std::exception& e)
     {

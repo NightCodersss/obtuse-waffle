@@ -1,7 +1,7 @@
 CXX=g++
 CFLAGS=-c -std=c++14 -g -Wall -Wextra -Werror -pedantic -DBOOST_LOG_DYN_LINK
-LDFLAGS=-lopencv_core -lopencv_imgproc -lopencv_highgui -lboost_log -lboost_system -lboost_thread -lpthread
-SOURCES=main.cpp opencv_image.cpp opencv_image_binarizer.cpp opencv_image_loader.cpp
+LDFLAGS=-lopencv_core -lopencv_imgproc -lopencv_highgui -lboost_log -lboost_system -lboost_thread -lpthread `pkg-config opencv --libs`
+SOURCES=main.cpp opencv_image.cpp opencv_image_binarizer.cpp opencv_image_loader.cpp opencv_image_denoiser.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main
 
