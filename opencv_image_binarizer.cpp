@@ -3,7 +3,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include "opencv_image_binarizer.hpp"
 
-std::unique_ptr<Image<OpenCVColorType>> OpenCVImageBinarizer::binarize(const ImageType& image)
+std::unique_ptr<Image<OpenCVColorType>> OpenCVImageBinarizer::apply(const ImageType& image) const
 {
 	cv::Mat img(image.height(), image.width(), CV_8UC3);
 	for (int i = 0; i < img.rows; ++i)

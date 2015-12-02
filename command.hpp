@@ -1,7 +1,7 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
 
-#include <memory.h>
+#include <memory>
 #include "image.hpp" 
 
 class ImageType;
@@ -12,7 +12,7 @@ class Command
 protected:
     using ImageType = Image<ColorType>;
 public:
-    virtual unique_ptr<ImageType> apply(const ImageType &image) const = 0;
+    virtual std::unique_ptr<ImageType> apply(const ImageType &image) const = 0;
 };
 
 

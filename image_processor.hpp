@@ -3,29 +3,45 @@
 
 #include <memory>
 #include "image.hpp"
-#include "image_binarizer.hpp"
+#include "command.hpp"
 #include "image_segmenter.hpp"
+#include "image_preprocessor.hpp"
 #include "letter_recognizer.hpp"
 
 template <class ColorType>
 class ImageProcessor
 {
 protected:
-    using BinarizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
-    using SegmenterType = std::unique_ptr<ImageBinarizer<ColorType>>;
-    using RecognizerType = std::unique_ptr<ImageBinarizer<ColorType>>;
-
+    using ImagePreprocessorType = ImageProcessor<ColorType>;
+    using SegmenterType = std::unique_ptr<ImageSegmenter<ColorType>>;
+    using RecognizerType = std::unique_ptr<LetterRecognizer<ColorType>>;
+    using CommandType = Command<ColorType>;
     using ImageType = Image<ColorType>;
+
 
 public:
 
-    ImageProcessor(BinarizerType binarizer, SegmenterType segmenter, RecognizerType recognizer);
-    std::string process(const ImageType& image);
+    ImageProcessor(SegmenterType segmenter, RecognizerType recognizer, std::vector<CommandType> commands) 
+        : segmenter(segmenter)
+        , recognizer(recognizer)
+        , commands(commands)
+    {
+    }
+
+    std::string process(const ImageType& image)
+    {
+        auto im = preprocessor.preprocess(image, commands);
+        auto images = segmenter.segment(*im);
+
+        return "";
+    }
 
 private:
-    BinarizerType binarizer;
+    ImagePreprocessorType preprocessor;
+    std::vector<std::unique_ptr<Command<ColorType>>> commands;
     SegmenterType segmenter;
     RecognizerType recognizer;
 };
+
 
 #endif
