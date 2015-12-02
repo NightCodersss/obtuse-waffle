@@ -1,16 +1,16 @@
 #ifndef OPENCV_IMAGE_DENOISER_HPP
 #define OPENCV_IMAGE_DENOISER_HPP
 
-#include "image_denoiser.hpp"
+#include "command.hpp"
 #include "opencv_image.hpp"
 
-class OpenCVImageDenoiser: public ImageDenoiser<OpenCVColorType> 
+class OpenCVImageDenoiser: public Command<OpenCVColorType> 
 {
-protected:    
-    using ImageType = Image<OpenCVColorType>;
+//iprotected:    
+//    using ImageType = Image<OpenCVColorType>;
 
 public:
-    std::unique_ptr<ImageType> denoise(const ImageType& image) const override;
+    std::unique_ptr<ImageType> apply(const ImageType& image) const override;
 };
 
 #endif

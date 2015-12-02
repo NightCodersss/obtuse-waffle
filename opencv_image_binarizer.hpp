@@ -1,16 +1,15 @@
 #ifndef OPENCV_IMAGE_BINARAIZER_HPP
 #define OPENCV_IMAGE_BINARAIZER_HPP
 
-#include "image_binarizer.hpp"
+#include "command.hpp"
 #include "opencv_image.hpp"
 
-class OpenCVImageBinarizer: public ImageBinarizer<OpenCVColorType> 
+class OpenCVImageBinarizer: public Command<OpenCVColorType> 
 {
-protected:    
-    using ImageType = Image<OpenCVColorType>;
-
+//protected:    
+//    using ImageType = Image<OpenCVColorType>;
 public:
-    std::unique_ptr<ImageType> binarize(const ImageType& image) override;
+    std::unique_ptr<ImageType> apply(const ImageType& image) const override;
 };
 
 #endif
