@@ -11,6 +11,7 @@ class Command
 {    
 protected:
     using ImageType = Image<ColorType>;
+
 public:
     virtual std::unique_ptr<ImageType> apply(const ImageType &image) const = 0;
 };

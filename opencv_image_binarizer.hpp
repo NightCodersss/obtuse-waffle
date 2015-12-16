@@ -6,10 +6,14 @@
 
 class OpenCVImageBinarizer: public Command<OpenCVColorType> 
 {
-//protected:    
-//    using ImageType = Image<OpenCVColorType>;
 public:
     std::unique_ptr<ImageType> apply(const ImageType& image) const override;
+protected:
+    static constexpr struct{
+        int maxValue;
+        int blockSize;
+        int C; 
+    } settings = {255, 5, 1};
 };
 
 #endif
