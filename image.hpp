@@ -10,6 +10,7 @@ public:
 	virtual ColorType operator[](std::pair<int, int> index) const = 0;			
 	virtual int width() const = 0;
 	virtual int height() const = 0;
+    virtual void show() const = 0;
 };
 
 #endif

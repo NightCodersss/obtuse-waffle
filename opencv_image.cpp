@@ -17,7 +17,7 @@ OpenCVColorType OpenCVImage::operator[](std::pair<int, int> index) const
 	return image.at<cv::Vec3b>(index.first, index.second);
 }
 
-void OpenCVImage::show()
+void OpenCVImage::show() const
 {
     cv::namedWindow("", cv::WINDOW_AUTOSIZE);
     cv::imshow("", image);

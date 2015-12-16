@@ -15,7 +15,7 @@ public:
 	OpenCVColorType operator[](std::pair<int, int> index) const override;			
 	int width() const override;
 	int height() const override;
-    void show();
+    void show() const override;
 private:
 	cv::Mat image;
 };

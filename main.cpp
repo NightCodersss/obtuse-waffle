@@ -17,9 +17,10 @@
 int main(int argc, char **argv)
 {
 	boost::log::add_file_log(
-			boost::log::keywords::file_name = "./log.log",
-			boost::log::keywords::auto_flush = true
+			    boost::log::keywords::file_name = "./log.log",
+			    boost::log::keywords::auto_flush = true
 			);
+
 	BOOST_LOG_TRIVIAL(trace) << "Log begin";
 
     if (argc < 2) {
@@ -39,16 +40,12 @@ int main(int argc, char **argv)
         ImagePreprocessor<OpenCVColorType> prep;
         auto im = prep.preprocess(*image, { std::cref(*denoiser), std::cref(*binarizer), std::cref(*denoiser)});
 
-//        auto den = denoiser->denoise(*image);
-//        dynamic_cast<OpenCVImage*>(den.get())->show();
-//        auto bin = binarizer->binarize(*den);
-//        dynamic_cast<OpenCVImage*>(bin.get())->show();
-        dynamic_cast<OpenCVImage*>(im.get())->show();
-        cv::waitKey(0);
+        im->show();
     }
-    catch (std::exception& e)
+
+    catch (std::exception& error)
     {
-		BOOST_LOG_TRIVIAL(error) << e.what();
+		BOOST_LOG_TRIVIAL(error) << error.what();
     }
 
     return 0;
