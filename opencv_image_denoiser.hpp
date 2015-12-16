@@ -6,8 +6,6 @@
 
 class OpenCVImageDenoiser: public Command<OpenCVColorType> 
 {
-//iprotected:    
-//    using ImageType = Image<OpenCVColorType>;
 
 public:
     std::unique_ptr<ImageType> apply(const ImageType& image) const override;
